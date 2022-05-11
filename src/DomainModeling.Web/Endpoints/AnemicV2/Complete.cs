@@ -22,7 +22,7 @@ public class Complete : EndpointBaseAsync
         var project = (await Data.Projects)
             .FirstOrDefault(p => p.Id == projectId);
         if (project == null) return NotFound();
-        project.ToDoItems.ForEach(item => item.IsDone = true);
+        project.ToDoItems.ForEach(item => item.IsDone = true); // Notifications should be sent here but aren't
 
         return project;
     }
