@@ -7,7 +7,7 @@ public class Data
 	public static Task<List<Project>> Projects =>
 			Task.FromResult<List<Project>>(_projects);
 
-	internal static void Seed()
+	internal static void Seed(ILogger logger)
 	{
 		int currentProjectId = 1;
 		int currentTaskId = 1;
@@ -15,5 +15,7 @@ public class Data
 		project.ToDoItems.Add(new ToDoItem() { Id = currentTaskId++, Name = "Write Sample Code" });
 		project.ToDoItems.Add(new ToDoItem() { Id = currentTaskId++, Name = "Write Blog Post" });
 		project.ToDoItems.Add(new ToDoItem() { Id = currentTaskId++, Name = "Send Newsletter" });
+
+		logger.LogInformation($"Data seeded in Anemic namespace");
 	}
 }

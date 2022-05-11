@@ -1,8 +1,12 @@
 ﻿using System.Reflection;
 using Microsoft.Extensions.PlatformAbstractions;
 using Microsoft.OpenApi.Models;
+using Serilog;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((ctx, lc) => lc
+		.WriteTo.Console());
 
 // Add services to the container.
 
@@ -36,10 +40,8 @@ app.MapControllers();
 
 // Configure Sample Data
 
-DomainModeling.Web.Endpoints.Anemic.Data.Seed();
-
-
-
+DomainModeling.Web.Endpoints.Anemic.Data.Seed(app.Logger);
+DomainModeling.Web.Endpoints.AnemicV2.Data.Seed(app.Logger);
 
 app.Run();
 
