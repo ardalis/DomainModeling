@@ -7,8 +7,8 @@
   </PropertyGroup>
   
   <PropertyGroup>
-    <DocumentationFile>.\DomainModeling.Web.xml</DocumentationFile>
-    <NoWarn>CS1591</NoWarn>
+    <!--<DocumentationFile>.\DomainModeling.Web.xml</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>-->
   </PropertyGroup>
   
   <ItemGroup>

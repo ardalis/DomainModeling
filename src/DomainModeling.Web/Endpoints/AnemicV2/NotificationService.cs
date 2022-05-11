@@ -6,8 +6,8 @@ namespace DomainModeling.Web.Endpoints.AnemicV2;
 /// </summary>
 public static class NotificationService
 {
-    public static void NotifyToDoItemCompleted(ToDoItem item)
-    {
-        Console.WriteLine($"Item {item.Name} is complete.");
-    }
+	public static void NotifyToDoItemCompleted(ToDoItem item)
+	{
+		Console.WriteLine($"Item {item.Name} is complete.");
+	}
 }
