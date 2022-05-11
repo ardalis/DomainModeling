@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DomainModeling.Web</name>
+    </assembly>
+    <members>
+        <member name="M:DomainModeling.Web.Endpoints.Anemic.Complete.HandleAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Completes a project and all of its todo items
+            </summary>
+            <param name="projectId"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DomainModeling.Web.Endpoints.Anemic.ToDoItem">
+            <summary>
+            Represents a single task in a project
+            </summary>
+        </member>
+        <member name="M:DomainModeling.Web.Endpoints.Anemic.UpdateToDoItem.HandleAsync(DomainModeling.Web.Endpoints.Anemic.UpdateToDoItemRequest,System.Threading.CancellationToken)">
+            <summary>
+            Updates a ToDoItem
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

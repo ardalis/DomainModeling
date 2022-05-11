@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+  
+  <PropertyGroup>
+    <DocumentationFile>.\DomainModeling.Web.xml</DocumentationFile>
+    <NoWarn>CS1591</NoWarn>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Ardalis.ApiEndpoints" Version="4.0.1" />
+    <PackageReference Include="Ardalis.ApiEndpoints.CodeAnalyzers" Version="4.0.0" />
+    <PackageReference Include="Ardalis.ApiEndpoints.Swashbuckle" Version="4.0.1" />
+    <PackageReference Include="Microsoft.Extensions.PlatformAbstractions" Version="1.1.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.2.3" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" Version="6.3.1" />
+  </ItemGroup>
+
+</Project>
