@@ -16,6 +16,7 @@ builder.Services.AddSwaggerGen(c =>
 {
     c.SwaggerDoc("v1", new OpenApiInfo { Title = "Domain Modeling", Version = "v1" });
     c.IncludeXmlComments(Program.XmlCommentsFilePath);
+    c.CustomSchemaIds(x => x.FullName);
     c.UseApiEndpoints();
 });
 var app = builder.Build();

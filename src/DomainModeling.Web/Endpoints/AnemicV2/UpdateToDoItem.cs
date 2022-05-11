@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Swashbuckle.AspNetCore.Annotations;
 
-namespace DomainModeling.Web.Endpoints.Anemic;
+namespace DomainModeling.Web.Endpoints.AnemicV2;
 
 public class UpdateToDoItem : EndpointBaseAsync
         .WithRequest<UpdateToDoItemRequest>
@@ -23,6 +23,10 @@ public class UpdateToDoItem : EndpointBaseAsync
         var item = project.ToDoItems
             .FirstOrDefault(i => i.Id == request.ToDoItemId);
         if (item == null) return NotFound();
+        if (request.UpdatedIsDone)
+        {
+            NotificationService.NotifyToDoItemCompleted(item);
+        }
         item.IsDone = request.UpdatedIsDone;
         item.Name = request.UpdatedName;
 
