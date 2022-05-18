@@ -17,7 +17,7 @@ public class DataService
     Mediator = mediator;
   }
 
-  public void SaveChanges()
+  public async Task SaveChanges()
   {
     foreach (var project in _projects)
     {
@@ -25,12 +25,11 @@ public class DataService
       {
         foreach (var domainEvent in item.Events)
         {
-          Mediator.Publish(domainEvent);
+          await Mediator.Publish(domainEvent);
         }
         item.ClearDomainEvents();
       }
     }
-
   }
 
   internal static void Seed(ILogger logger)

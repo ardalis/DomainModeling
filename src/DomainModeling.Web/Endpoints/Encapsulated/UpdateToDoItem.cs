@@ -35,12 +35,10 @@ public class UpdateToDoItem : EndpointBaseAsync
     if (request.UpdatedIsDone)
     {
       item.MarkComplete();
-      //NotificationService.NotifyToDoItemCompleted(item);
     }
-    //item.IsDone = request.UpdatedIsDone;
     item.Name = request.UpdatedName;
 
-    _dataService.SaveChanges();
+    await _dataService.SaveChanges();
     return project;
   }
 }
