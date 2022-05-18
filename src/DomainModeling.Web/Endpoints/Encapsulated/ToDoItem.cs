@@ -6,7 +6,7 @@ namespace DomainModeling.Web.Endpoints.Encapsulated;
 /// <summary>
 /// Represents a single task in a project
 /// </summary>
-public class ToDoItem : BaseEntity
+public class ToDoItem : EntityBase
 {
   public ToDoItem(string name)
   {

@@ -1,6 +1,6 @@
 ﻿namespace DomainModeling.Web.Endpoints.Encapsulated;
 
-public abstract class BaseEntity
+public abstract class EntityBase
 {
   public int Id { get; set; }
 
