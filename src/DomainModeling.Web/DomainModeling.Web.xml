@@ -67,5 +67,39 @@
             <param name="cancellationToken"></param>
             <returns></returns>
         </member>
+        <member name="M:DomainModeling.Web.Endpoints.Encapsulated.Complete.HandleAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Completes a project and all of its todo items
+            </summary>
+            <param name="projectId"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DomainModeling.Web.Endpoints.Encapsulated.GetById.HandleAsync(System.Int32,System.Threading.CancellationToken)">
+            <summary>
+            Gets a Project with its ToDoItems
+            </summary>
+            <param name="id"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DomainModeling.Web.Endpoints.Encapsulated.NotificationService">
+            <summary>
+            Sends interested parties notifications
+            </summary>
+        </member>
+        <member name="T:DomainModeling.Web.Endpoints.Encapsulated.ToDoItem">
+            <summary>
+            Represents a single task in a project
+            </summary>
+        </member>
+        <member name="M:DomainModeling.Web.Endpoints.Encapsulated.UpdateToDoItem.HandleAsync(DomainModeling.Web.Endpoints.Encapsulated.UpdateToDoItemRequest,System.Threading.CancellationToken)">
+            <summary>
+            Updates a ToDoItem
+            </summary>
+            <param name="request"></param>
+            <param name="cancellationToken"></param>
+            <returns></returns>
+        </member>
     </members>
 </doc>

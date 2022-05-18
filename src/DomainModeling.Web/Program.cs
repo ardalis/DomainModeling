@@ -42,6 +42,7 @@ app.MapControllers();
 
 DomainModeling.Web.Endpoints.Anemic.Data.Seed(app.Logger);
 DomainModeling.Web.Endpoints.AnemicV2.Data.Seed(app.Logger);
+DomainModeling.Web.Endpoints.Encapsulated.Data.Seed(app.Logger);
 
 app.Run();
 

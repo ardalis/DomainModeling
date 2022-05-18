@@ -5,7 +5,20 @@
 /// </summary>
 public class ToDoItem : BaseEntity
 {
-	public string Name { get; set; } = "";
-	public string Description { get; set; } = "";
-	public bool IsDone { get; set; }
+  public ToDoItem(string name)
+  {
+    Name = name;
+  }
+
+  public string Name { get; set; } = "";
+  public string Description { get; private set; } = "";
+  public bool IsDone { get; private set; }
+
+  public void MarkComplete()
+  {
+    if (IsDone) return;
+
+    IsDone = true;
+
+  }
 }
