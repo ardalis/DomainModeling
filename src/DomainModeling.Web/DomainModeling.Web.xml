@@ -93,6 +93,11 @@
             Represents a single task in a project
             </summary>
         </member>
+        <member name="T:DomainModeling.Web.Endpoints.Encapsulated.ToDoItem.CompletedItemHandler">
+            <summary>
+            Handlers within domain entity classes can access private state of entities
+            </summary>
+        </member>
         <member name="M:DomainModeling.Web.Endpoints.Encapsulated.UpdateToDoItem.HandleAsync(DomainModeling.Web.Endpoints.Encapsulated.UpdateToDoItemRequest,System.Threading.CancellationToken)">
             <summary>
             Updates a ToDoItem

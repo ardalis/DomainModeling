@@ -4,8 +4,9 @@ public abstract class BaseEntity
 {
   public int Id { get; set; }
 
-  private List<DomainEvent> _events = new();
-  private IEnumerable<DomainEvent> Events => _events.AsReadOnly();
+  private List<DomainEventBase> _events = new();
+  internal IEnumerable<DomainEventBase> Events => _events.AsReadOnly();
 
-  private void RegisterEvent(DomainEvent domainEvent) => _events.Add(domainEvent);
+  protected void RegisterDomainEvent(DomainEventBase domainEvent) => _events.Add(domainEvent);
+  internal void ClearDomainEvents() => _events.Clear();
 }

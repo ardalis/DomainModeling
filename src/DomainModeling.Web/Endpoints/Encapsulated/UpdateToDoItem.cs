@@ -7,6 +7,15 @@ public class UpdateToDoItem : EndpointBaseAsync
         .WithRequest<UpdateToDoItemRequest>
         .WithActionResult<Project>
 {
+
+  private readonly DataService _dataService;
+
+  public UpdateToDoItem(DataService dataService)
+  {
+    _dataService = dataService;
+  }
+
+
   /// <summary>
   /// Updates a ToDoItem
   /// </summary>
@@ -17,7 +26,7 @@ public class UpdateToDoItem : EndpointBaseAsync
   public override async Task<ActionResult<Project>> HandleAsync(UpdateToDoItemRequest request,
     CancellationToken cancellationToken = default)
   {
-    var project = (await Data.Projects)
+    var project = (await DataService.Projects)
         .FirstOrDefault(p => p.Id == request.ProjectId);
     if (project == null) return NotFound();
     var item = project.ToDoItems
@@ -26,11 +35,12 @@ public class UpdateToDoItem : EndpointBaseAsync
     if (request.UpdatedIsDone)
     {
       item.MarkComplete();
-      NotificationService.NotifyToDoItemCompleted(item);
+      //NotificationService.NotifyToDoItemCompleted(item);
     }
     //item.IsDone = request.UpdatedIsDone;
     item.Name = request.UpdatedName;
 
+    _dataService.SaveChanges();
     return project;
   }
 }

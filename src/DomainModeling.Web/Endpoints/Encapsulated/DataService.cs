@@ -1,22 +1,36 @@
 ﻿using System.Collections.ObjectModel;
+using MediatR;
 
 namespace DomainModeling.Web.Endpoints.Encapsulated;
 
-public class Data
+public class DataService
 {
   internal static ObservableCollection<Project> _projects = new();
 
   public static Task<List<Project>> Projects =>
       Task.FromResult<List<Project>>(_projects.ToList());
 
-  static Data()
+  public IMediator Mediator { get; }
+
+  public DataService(IMediator mediator)
   {
-    _projects.CollectionChanged += Projects_CollectionChanged;
+    Mediator = mediator;
   }
 
-  private static void Projects_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+  public void SaveChanges()
   {
-    Console.WriteLine($"collection changed: {e}");
+    foreach (var project in _projects)
+    {
+      foreach (var item in project.ToDoItems)
+      {
+        foreach (var domainEvent in item.Events)
+        {
+          Mediator.Publish(domainEvent);
+        }
+        item.ClearDomainEvents();
+      }
+    }
+
   }
 
   internal static void Seed(ILogger logger)
