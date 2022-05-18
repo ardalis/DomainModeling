@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using Ardalis.GuardClauses;
+using MediatR;
 
 namespace DomainModeling.Web.Endpoints.Encapsulated;
 
@@ -9,7 +10,7 @@ public class ToDoItem : BaseEntity
 {
   public ToDoItem(string name)
   {
-    Name = name;
+    Name = Guard.Against.NullOrEmpty(name, nameof(name));
   }
 
   public string Name { get; set; } = "";
